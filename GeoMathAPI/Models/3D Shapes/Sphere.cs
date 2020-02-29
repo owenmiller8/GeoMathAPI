@@ -35,7 +35,7 @@ namespace GeoMathAPI.Models
 
         private double CalculateVolume(double r)
         {
-            return Math.Round(Math.PI * (r * 2), 3);
+            return Math.Round((4 / 3) * (Math.PI * Math.Pow(r, 3)), 3);
         }
     }
 }
