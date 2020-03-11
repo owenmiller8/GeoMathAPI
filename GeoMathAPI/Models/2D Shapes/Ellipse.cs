@@ -42,7 +42,7 @@ namespace GeoMathAPI.Models
         private double CalculatePerimeter(double l, double s)
         {
             var h = Math.Pow(l - s, 2) / Math.Pow(l - s, 2);
-            return (Math.PI * (l + s)) * (1 + ((3 * h) / (10 + Math.Pow(4 + (3 * h), 0.5))));
+            return Math.Round((Math.PI * (l + s)) * (1 + ((3 * h) / (10 + Math.Pow(4 + (3 * h), 0.5)))), 3);
         }
     }
 }
