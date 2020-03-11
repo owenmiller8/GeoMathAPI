@@ -11,14 +11,14 @@ namespace GeoMathAPI.Models
 
         public double Perimeter { get; set; }
 
-        public Triangle(double width, double height, CalcTypes calc)
+        public Triangle(double width, double height, _CalcTypes calc)
         {
             switch (calc)
             {
-                case CalcTypes.AreaCalc:
+                case _CalcTypes.AreaCalc:
                     Area = CalculateArea(width, height);
                     break;
-                case CalcTypes.PerimeterCalc:
+                case _CalcTypes.PerimeterCalc:
                     Perimeter = CalculatePerimeter(width, height);
                     break;
                 default:
@@ -26,7 +26,7 @@ namespace GeoMathAPI.Models
             }
         }
 
-        private double CalculateArea(double w, double h)
+        public static double CalculateArea(double w, double h)
         {
             return Math.Round((w * h)/2, 3);
         }

@@ -11,14 +11,14 @@ namespace GeoMathAPI.Models
 
         public double Perimeter { get; set; }
 
-        public Circle(double radius, CalcTypes calc)
+        public Circle(double radius, _CalcTypes calc)
         {
             switch (calc)
             {
-                case CalcTypes.AreaCalc:
+                case _CalcTypes.AreaCalc:
                     Area = CalculateArea(radius);
                     break;
-                case CalcTypes.PerimeterCalc:
+                case _CalcTypes.PerimeterCalc:
                     Perimeter = CalculatePerimeter(radius);
                     break;
                 default:
@@ -28,7 +28,7 @@ namespace GeoMathAPI.Models
         }
         
 
-        private double CalculateArea(double r)
+        public static double CalculateArea(double r)
         {
             return Math.Round(Math.PI * Math.Pow(r, 2), 3);
         }

@@ -5,21 +5,21 @@ using System.Threading.Tasks;
 
 namespace GeoMathAPI.Models._3D_Shapes
 {
-    public class Cuboid
+    public class Cylinder
     {
         public double SurfaceArea { get; set; }
 
         public double Volume { get; set; }
 
-        public Cuboid(double height, double width, double length, _CalcTypes calc)
+        public Cylinder(double radius, double length, _CalcTypes calc)
         {
             switch (calc)
             {
                 case _CalcTypes.AreaCalc:
-                    SurfaceArea = CalculateArea(height, width, length);
+                    SurfaceArea = CalculateArea(radius, length);
                     break;
                 case _CalcTypes.VolumeCalc:
-                    Volume = CalculateVolume(height, width, length);
+                    Volume = CalculateVolume(radius, length);
                     break;
                 default:
                     //Perhaps log an issue here?
@@ -27,15 +27,14 @@ namespace GeoMathAPI.Models._3D_Shapes
             }
         }
 
-
-        private double CalculateArea(double height, double width, double length)
+        private double CalculateArea(double radius, double length)
         {
-            return Math.Round((height * width * 2) + (width * length * 2) + (height * length * 2), 3);
+            return Math.Round(Circle.CalculateArea(radius) + (2 * Math.PI * radius * length), 3);
         }
 
-        private double CalculateVolume(double height, double width, double length)
+        private double CalculateVolume(double radius, double length)
         {
-            return Math.Round(height * width * length, 3);
+            return Math.Round(Circle.CalculateArea(radius) * length, 3);
         }
     }
 }

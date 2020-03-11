@@ -11,14 +11,14 @@ namespace GeoMathAPI.Models
 
         public double Volume { get; set; }
 
-        public Sphere(double radius, CalcTypes calc)
+        public Sphere(double radius, _CalcTypes calc)
         {
             switch (calc)
             {
-                case CalcTypes.AreaCalc:
+                case _CalcTypes.AreaCalc:
                     SurfaceArea = CalculateArea(radius);
                     break;
-                case CalcTypes.VolumeCalc:
+                case _CalcTypes.VolumeCalc:
                     Volume = CalculateVolume(radius);
                     break;
                 default:

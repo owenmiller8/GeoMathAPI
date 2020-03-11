@@ -11,14 +11,14 @@ namespace GeoMathAPI.Models
 
         public double Perimeter { get; set; }
 
-        public Ellipse(double longRadius, double shortRadius, CalcTypes calc)
+        public Ellipse(double longRadius, double shortRadius, _CalcTypes calc)
         {
             switch (calc)
             {
-                case CalcTypes.AreaCalc:
+                case _CalcTypes.AreaCalc:
                     Area = CalculateArea(longRadius, shortRadius);
                     break;
-                case CalcTypes.PerimeterCalc:
+                case _CalcTypes.PerimeterCalc:
                     Perimeter = CalculatePerimeter(longRadius, shortRadius);
                     break;
                 default:

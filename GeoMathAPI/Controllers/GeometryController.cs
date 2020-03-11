@@ -19,7 +19,7 @@ namespace GeoMathAPI.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("circle")]
-        public ActionResult<Circle> Circle(double radius, CalcTypes calc)
+        public ActionResult<Circle> Circle(double radius, _CalcTypes calc)
         {
             //calc is used for an Enum to tell the Circle constructor what method to use
             return new Circle(radius, calc);
@@ -27,7 +27,7 @@ namespace GeoMathAPI.Controllers
 
         [HttpGet]
         [Route("triangle")]
-        public ActionResult<Triangle> Triangle(double width, double height, CalcTypes calc)
+        public ActionResult<Triangle> Triangle(double width, double height, _CalcTypes calc)
         {
             //calc is used for an Enum to tell the Circle constructor what method to use
             return new Triangle(width, height, calc);
@@ -35,7 +35,7 @@ namespace GeoMathAPI.Controllers
 
         [HttpGet]
         [Route("ellipse")]
-        public ActionResult<Ellipse> Ellipse(double longRadius, double shortRadius, CalcTypes calc)
+        public ActionResult<Ellipse> Ellipse(double longRadius, double shortRadius, _CalcTypes calc)
         {
             //calc is used for an Enum to tell the Circle constructor what method to use
             return new Ellipse(longRadius, shortRadius, calc);

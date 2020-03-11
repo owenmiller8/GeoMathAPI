@@ -8,7 +8,7 @@ namespace GeoMathAPI.Models
     /// <summary>
     /// Enum based on what user wants to calculate
     /// </summary>
-    public enum CalcTypes
+    public enum _CalcTypes
     {
         AreaCalc,
         PerimeterCalc,
