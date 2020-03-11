@@ -11,14 +11,14 @@ namespace GeoMathAPI.Models._3D_Shapes
 
         public double Volume { get; set; }
 
-        public Cube(double length, CalcTypes calc)
+        public Cube(double length, _CalcTypes calc)
         {
             switch (calc)
             {
-                case CalcTypes.AreaCalc:
+                case _CalcTypes.AreaCalc:
                     SurfaceArea = CalculateArea(length);
                     break;
-                case CalcTypes.VolumeCalc:
+                case _CalcTypes.VolumeCalc:
                     Volume = CalculateVolume(length);
                     break;
                 default:
@@ -28,12 +28,12 @@ namespace GeoMathAPI.Models._3D_Shapes
         }
 
 
-        private double CalculateArea(double l)
+        public double CalculateArea(double l)
         {
             return Math.Round(Math.Pow(l, 2) * 6, 3);
         }
 
-        private double CalculateVolume(double l)
+        public double CalculateVolume(double l)
         {
             return Math.Round(Math.Pow(l, 3), 3);
         }
