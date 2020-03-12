@@ -28,12 +28,12 @@ namespace GeoMathAPI.Models
         }
 
 
-        private double CalculateArea(double r)
+        public static double CalculateArea(double r)
         {
             return Math.Round(4 * (Math.PI * Math.Pow(r, 2)), 3);
         }
 
-        private double CalculateVolume(double r)
+        public static double CalculateVolume(double r)
         {
             return Math.Round((4 / 3) * (Math.PI * Math.Pow(r, 3)), 3);
         }

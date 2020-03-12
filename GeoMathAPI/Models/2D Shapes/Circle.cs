@@ -33,7 +33,7 @@ namespace GeoMathAPI.Models
             return Math.Round(Math.PI * Math.Pow(r, 2), 3);
         }
 
-        private double CalculatePerimeter(double r)
+        public static double CalculatePerimeter(double r)
         {
             return Math.Round(Math.PI * (r * 2), 3);
         }
