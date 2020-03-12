@@ -28,12 +28,12 @@ namespace GeoMathAPI.Models._3D_Shapes
         }
 
 
-        private double CalculateArea(double height, double width, double length)
+        public static double CalculateArea(double height, double width, double length)
         {
             return Math.Round((height * width * 2) + (width * length * 2) + (height * length * 2), 3);
         }
 
-        private double CalculateVolume(double height, double width, double length)
+        public static double CalculateVolume(double height, double width, double length)
         {
             return Math.Round(height * width * length, 3);
         }

@@ -32,7 +32,7 @@ namespace GeoMathAPI.Models
             return Math.Round(w * h, 3);
         }
 
-        private double CalculatePerimeter(double w, double h)
+        public static double CalculatePerimeter(double w, double h)
         {
             return Math.Round((w * 2) + (h * 2), 3);
         }

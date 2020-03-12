@@ -27,7 +27,7 @@ namespace GeoMathAPI.Models._3D_Shapes
             }
         }
 
-        private double CalculateArea(double height, double width, double length, _3DBases b)
+        public static double CalculateArea(double height, double width, double length, _3DBases b)
         {
             switch (b)
             {
@@ -40,7 +40,7 @@ namespace GeoMathAPI.Models._3D_Shapes
             }
         }
 
-        private double CalculateVolume(double height, double width, double length, _3DBases b)
+        public static double CalculateVolume(double height, double width, double length, _3DBases b)
         {
             switch (b)
             {
