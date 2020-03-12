@@ -27,12 +27,12 @@ namespace GeoMathAPI.Models._3D_Shapes
             }
         }
 
-        private double CalculateArea(double radius, double height)
+        public static double CalculateArea(double radius, double height)
         {
             return Math.Round(Math.PI * radius * (radius + Triangle.CalculateHypotenuse(radius, height)), 3);
         }
 
-        private double CalculateVolume(double radius, double length)
+        public static double CalculateVolume(double radius, double length)
         {
             return Math.Round((1 / 3) * Circle.CalculateArea(radius) * length, 3);
         }

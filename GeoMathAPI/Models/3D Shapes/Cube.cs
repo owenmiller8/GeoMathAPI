@@ -28,12 +28,12 @@ namespace GeoMathAPI.Models._3D_Shapes
         }
 
 
-        public double CalculateArea(double l)
+        public static double CalculateArea(double l)
         {
             return Math.Round(Math.Pow(l, 2) * 6, 3);
         }
 
-        public double CalculateVolume(double l)
+        public static double CalculateVolume(double l)
         {
             return Math.Round(Math.Pow(l, 3), 3);
         }

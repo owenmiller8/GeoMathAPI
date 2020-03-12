@@ -17,4 +17,8 @@
     <Folder Include="3D Shapes\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GeoMathAPI\GeoMathAPI.csproj" />
+  </ItemGroup>
+
 </Project>
