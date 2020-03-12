@@ -31,7 +31,7 @@ namespace GeoMathAPI.Models
             return Math.Round(Math.Pow(length, 2), 3);
         }
 
-        private double CalculatePerimeter(double length)
+        public static double CalculatePerimeter(double length)
         {
             return Math.Round(length * 4, 3);
         }

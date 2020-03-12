@@ -23,7 +23,7 @@ namespace GeoMathAPI.Controllers
 
         [HttpGet]
         [Route("ellipse")]
-        public ActionResult<Ellipse> Ellipse(double longRadius, double shortRadius, CalcTypes calc)
+        public ActionResult<Ellipse> Ellipse(double longRadius, double shortRadius, _CalcTypes calc)
         {
             //calc is used for an Enum to tell the constructor what method to use
             return new Ellipse(longRadius, shortRadius, calc);
@@ -31,7 +31,7 @@ namespace GeoMathAPI.Controllers
 
         [HttpGet]
         [Route("rectangle")]
-        public ActionResult<Rectangle> Rectangle(double length, double width, CalcTypes calc)
+        public ActionResult<Rectangle> Rectangle(double length, double width, _CalcTypes calc)
         {
             //calc is used for an Enum to tell the constructor what method to use
             return new Rectangle(length, width, calc);
@@ -39,7 +39,7 @@ namespace GeoMathAPI.Controllers
 
         [HttpGet]
         [Route("square")]
-        public ActionResult<Square> Square(double length, CalcTypes calc)
+        public ActionResult<Square> Square(double length, _CalcTypes calc)
         {
             //calc is used for an Enum to tell the constructor what method to use
             return new Square(length, calc);
@@ -57,8 +57,16 @@ namespace GeoMathAPI.Controllers
 
         #region 3D Shapes
         [HttpGet]
+        [Route("cone")]
+        public ActionResult<Cone> Cone(double radius, double height, _CalcTypes calc)
+        {
+            //calc is used for an Enum to tell the constructor what method to use
+            return new Cone(radius, height, calc);
+        }
+
+        [HttpGet]
         [Route("cube")]
-        public ActionResult<Cube> Cube(double length, CalcTypes calc)
+        public ActionResult<Cube> Cube(double length, _CalcTypes calc)
         {
             //calc is used for an Enum to tell the constructor what method to use
             return new Cube(length, calc);
@@ -66,15 +74,40 @@ namespace GeoMathAPI.Controllers
 
         [HttpGet]
         [Route("cuboid")]
-        public ActionResult<Cuboid> Cuboid(double height, double length, double width, CalcTypes calc)
+        public ActionResult<Cuboid> Cuboid(double height, double length, double width, _CalcTypes calc)
         {
             //calc is used for an Enum to tell the constructor what method to use
             return new Cuboid(height, width, length, calc);
         }
 
         [HttpGet]
+        [Route("cylinder")]
+        public ActionResult<Cylinder> Cylinder(double radius, double length, _CalcTypes calc)
+        {
+            //calc is used for an Enum to tell the Circle constructor what method to use
+            return new Cylinder(radius, length, calc);
+        }
+
+        [HttpGet]
+        [Route("prism")]
+        public ActionResult<Prism> Prism(double height, double width, double length, _CalcTypes calc, _3DBases b)
+        {
+            //calc is used for an Enum to tell the Circle constructor what method to use
+            //b is used to tell whether the shape has a triangular or square base
+            return new Prism(height, width, length, calc, b);
+        }
+        [HttpGet]
+        [Route("pyramid")]
+        public ActionResult<Pyramid> Pyramid(double height, double width, double length, _CalcTypes calc, _3DBases b)
+        {
+            //calc is used for an Enum to tell the Circle constructor what method to use
+            //b is used to tell whether the shape has a triangular or square base
+            return new Pyramid(height, width, length, calc, b);
+        }
+        
+        [HttpGet]
         [Route("sphere")]
-        public ActionResult<Sphere> Sphere(double radius, CalcTypes calc)
+        public ActionResult<Sphere> Sphere(double radius, _CalcTypes calc)
         {
             //calc is used for an Enum to tell the Circle constructor what method to use
             return new Sphere(radius, calc);

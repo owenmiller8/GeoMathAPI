@@ -28,7 +28,7 @@ namespace GeoMathAPI.Models
         }
 
 
-        private double CalculateArea(double l, double s)
+        public static double CalculateArea(double l, double s)
         {
             return Math.Round(Math.PI * l * s, 3);
         }
@@ -39,7 +39,7 @@ namespace GeoMathAPI.Models
         /// <param name="l"></param>
         /// <param name="s"></param>
         /// <returns></returns>
-        private double CalculatePerimeter(double l, double s)
+        public static double CalculatePerimeter(double l, double s)
         {
             var h = Math.Pow(l - s, 2) / Math.Pow(l - s, 2);
             return Math.Round((Math.PI * (l + s)) * (1 + ((3 * h) / (10 + Math.Pow(4 + (3 * h), 0.5)))), 3);

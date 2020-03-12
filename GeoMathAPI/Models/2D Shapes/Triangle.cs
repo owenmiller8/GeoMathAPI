@@ -31,10 +31,14 @@ namespace GeoMathAPI.Models
             return Math.Round((w * h)/2, 3);
         }
 
-        private double CalculatePerimeter(double w, double h)
+        public static double CalculatePerimeter(double w, double h)
         {
-            double hypotenuse = Math.Pow(Math.Pow(w, 2) + Math.Pow(h, 2), 0.5);
-            return Math.Round(hypotenuse + w + h, 3);
+            return Math.Round(CalculateHypotenuse(w, h) + w + h, 3);
+        }
+
+        public static double CalculateHypotenuse(double w, double h)
+        {
+            return Math.Pow(Math.Pow(w, 2) + Math.Pow(h, 2), 0.5);
         }
     }
 }
