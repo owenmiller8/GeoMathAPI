@@ -16,10 +16,10 @@ namespace GeoMathAPI.Models
             switch (calc)
             {
                 case _CalcTypes.AreaCalc:
-                    SurfaceArea = CalculateArea(radius);
+                    SurfaceArea = Math.Round(CalculateArea(radius), 3, MidpointRounding.AwayFromZero);
                     break;
                 case _CalcTypes.VolumeCalc:
-                    Volume = CalculateVolume(radius);
+                    Volume = Math.Round(CalculateVolume(radius), 3, MidpointRounding.AwayFromZero);
                     break;
                 default:
                     //Perhaps log an issue here?
@@ -35,7 +35,7 @@ namespace GeoMathAPI.Models
 
         public static decimal CalculateVolume(decimal r)
         {
-            return (4 / 3) * ((decimal)Math.PI * (decimal)Math.Pow((double)r, 3));
+            return (4m / 3m) * ((decimal)Math.PI * (decimal)Math.Pow((double)r, 3));
         }
     }
 }

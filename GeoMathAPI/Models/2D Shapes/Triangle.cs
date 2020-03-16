@@ -19,7 +19,7 @@ namespace GeoMathAPI.Models
                     Area = Math.Round(CalculateArea(width, height), 3, MidpointRounding.AwayFromZero);
                     break;
                 case _CalcTypes.PerimeterCalc:
-                    Perimeter = Math.Round(CalculatePerimeter(width, height), 3, MidpointRounding.AwayFromZero);
+                    Perimeter = Math.Round(CalculatePerimeter(width), 3, MidpointRounding.AwayFromZero);
                     break;
                 default:
                     break;
@@ -31,9 +31,9 @@ namespace GeoMathAPI.Models
             return (w * h)/2;
         }
 
-        public static decimal CalculatePerimeter(decimal w, decimal h)
+        public static decimal CalculatePerimeter(decimal w)
         {
-            return CalculateHypotenuse(w, h) + w + h;
+            return w * 3;
         }
 
         public static decimal CalculateHypotenuse(decimal w, decimal h)
