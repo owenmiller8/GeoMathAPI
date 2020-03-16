@@ -16,10 +16,10 @@ namespace GeoMathAPI.Models._3D_Shapes
             switch (calc)
             {
                 case _CalcTypes.AreaCalc:
-                    SurfaceArea = CalculateArea(height, width, length, shapeBase);
+                    SurfaceArea = Math.Round(CalculateArea(height, width, length, shapeBase), 3, MidpointRounding.AwayFromZero);
                     break;
                 case _CalcTypes.VolumeCalc:
-                    Volume = CalculateVolume(height, width, length, shapeBase);
+                    Volume = Math.Round(CalculateVolume(height, width, length, shapeBase), 3, MidpointRounding.AwayFromZero);
                     break;
                 default:
                     //Perhaps log an issue here?
@@ -27,27 +27,27 @@ namespace GeoMathAPI.Models._3D_Shapes
             }
         }
 
-        public static decimal CalculateArea(decimal height, decimal width, decimal length, _3DBases b)
+        public static decimal CalculateArea(decimal length, decimal width, decimal height, _3DBases b)
         {
             switch (b)
             {
                 case _3DBases.Square:
-                    return Square.CalculateArea(height)  + (0.5m * Square.CalculatePerimeter(length) * Triangle.CalculateHypotenuse(height, 0.5m * width));
+                    return Square.CalculateArea(length) + (0.5m * Square.CalculatePerimeter(length) * Triangle.CalculateHypotenuse(height, 0.5m * length));
                 case _3DBases.Triangle:
-                    return Triangle.CalculateArea(height, width) + (0.5m * Triangle.CalculatePerimeter(width, length) * Triangle.CalculateHypotenuse(width, height));
+                    return Triangle.CalculateArea(length, width) + (0.5m * Triangle.CalculatePerimeter(width) * Triangle.CalculateHypotenuse(width, length));
                 default:
                     return 123456m;
             }
         }
 
-        public static decimal CalculateVolume(decimal height, decimal width, decimal length, _3DBases b)
+        public static decimal CalculateVolume(decimal length, decimal width, decimal height, _3DBases b)
         {
             switch (b)
             {
                 case _3DBases.Square:
-                    return (1 / 3) * Square.CalculateArea(height) * height;
+                    return (1m / 3m) * Square.CalculateArea(length) * height;
                 case _3DBases.Triangle:
-                    return (1 / 3) * Triangle.CalculateArea(length, width) * height;
+                    return (1m / 3m) * Triangle.CalculateArea(length, width) * height;
                 default:
                     return 123456m;
             }

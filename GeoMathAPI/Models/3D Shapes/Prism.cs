@@ -16,10 +16,10 @@ namespace GeoMathAPI.Models._3D_Shapes
             switch (calc)
             {
                 case _CalcTypes.AreaCalc:
-                    SurfaceArea = CalculateArea(height, width, length, shapeBase);
+                    SurfaceArea = Math.Round(CalculateArea(height, width, length, shapeBase), 3, MidpointRounding.AwayFromZero);
                     break;
                 case _CalcTypes.VolumeCalc:
-                    Volume = CalculateVolume(height, width, length, shapeBase);
+                    Volume = Math.Round(CalculateVolume(height, width, length, shapeBase), 3, MidpointRounding.AwayFromZero);
                     break;
                 default:
                     //Perhaps log an issue here?
@@ -32,9 +32,9 @@ namespace GeoMathAPI.Models._3D_Shapes
             switch (b)
             {
                 case _3DBases.Square:
-                    return Math.Round((Square.CalculateArea(height) * 2) + (Rectangle.CalculateArea(height, length) * 4), 3);
+                    return (Square.CalculateArea(height) * 2) + (Rectangle.CalculateArea(height, length) * 4);
                 case _3DBases.Triangle:
-                    return Math.Round((Triangle.CalculateArea(height, width) * 2) + (Rectangle.CalculateArea(height, length) * 3), 3);
+                    return (Triangle.CalculateArea(height, width) * 2) + (Rectangle.CalculateArea(width, length) * 3);
                 default:
                     return 123456m;
             }
