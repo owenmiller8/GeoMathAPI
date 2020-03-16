@@ -7,19 +7,19 @@ namespace GeoMathAPI.Models._3D_Shapes
 {
     public class Cone
     {
-        public double SurfaceArea { get; set; }
+        public decimal SurfaceArea { get; set; }
 
-        public double Volume { get; set; }
+        public decimal Volume { get; set; }
 
-        public Cone(double radius, double height, _CalcTypes calc)
+        public Cone(decimal radius, decimal height, _CalcTypes calc)
         {
             switch (calc)
             {
                 case _CalcTypes.AreaCalc:
-                    SurfaceArea = CalculateArea(radius, height);
+                    SurfaceArea = Math.Round(CalculateArea(radius, height), 3, MidpointRounding.AwayFromZero);
                     break;
                 case _CalcTypes.VolumeCalc:
-                    Volume = CalculateVolume(radius, height);
+                    Volume = Math.Round(CalculateVolume(radius, height), 3, MidpointRounding.AwayFromZero);
                     break;
                 default:
                     //Perhaps log an issue here?
@@ -27,14 +27,14 @@ namespace GeoMathAPI.Models._3D_Shapes
             }
         }
 
-        public static double CalculateArea(double radius, double height)
+        public static decimal CalculateArea(decimal radius, decimal height)
         {
-            return Math.Round(Math.PI * radius * (radius + Triangle.CalculateHypotenuse(radius, height)), 3);
+            return (decimal)Math.PI * radius * (radius + Triangle.CalculateHypotenuse(radius, height));
         }
 
-        public static double CalculateVolume(double radius, double length)
+        public static decimal CalculateVolume(decimal radius, decimal height)
         {
-            return Math.Round((1 / 3) * Circle.CalculateArea(radius) * length, 3);
+            return Circle.CalculateArea(radius) * (height / 3);
         }
     }
 }

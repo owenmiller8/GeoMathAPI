@@ -7,19 +7,19 @@ namespace GeoMathAPI.Models
 {
     public class Circle
     {
-        public double Area { get; set; }
+        public decimal Area { get; set; }
 
-        public double Perimeter { get; set; }
+        public decimal Perimeter { get; set; }
 
-        public Circle(double radius, _CalcTypes calc)
+        public Circle(decimal radius, _CalcTypes calc)
         {
             switch (calc)
             {
                 case _CalcTypes.AreaCalc:
-                    Area = CalculateArea(radius);
+                    Area = Math.Round(CalculateArea(radius), 3, MidpointRounding.AwayFromZero);
                     break;
                 case _CalcTypes.PerimeterCalc:
-                    Perimeter = CalculatePerimeter(radius);
+                    Perimeter = Math.Round(CalculatePerimeter(radius), 3, MidpointRounding.AwayFromZero);
                     break;
                 default:
                     //Perhaps log an issue here?
@@ -28,14 +28,14 @@ namespace GeoMathAPI.Models
         }
         
 
-        public static double CalculateArea(double r)
+        public static decimal CalculateArea(decimal r)
         {
-            return Math.Round(Math.PI * Math.Pow(r, 2), 3);
+            return (decimal)Math.PI * (decimal)Math.Pow((double)r, 2f);
         }
 
-        public static double CalculatePerimeter(double r)
+        public static decimal CalculatePerimeter(decimal r)
         {
-            return Math.Round(Math.PI * (r * 2), 3);
+            return (decimal)Math.PI * (r * 2);
         }
     }
 }

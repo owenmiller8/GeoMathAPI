@@ -7,19 +7,19 @@ namespace GeoMathAPI.Models._3D_Shapes
 {
     public class Cylinder
     {
-        public double SurfaceArea { get; set; }
+        public decimal SurfaceArea { get; set; }
 
-        public double Volume { get; set; }
+        public decimal Volume { get; set; }
 
-        public Cylinder(double radius, double length, _CalcTypes calc)
+        public Cylinder(decimal radius, decimal length, _CalcTypes calc)
         {
             switch (calc)
             {
                 case _CalcTypes.AreaCalc:
-                    SurfaceArea = CalculateArea(radius, length);
+                    SurfaceArea = Math.Round(CalculateArea(radius, length), 3, MidpointRounding.AwayFromZero);
                     break;
                 case _CalcTypes.VolumeCalc:
-                    Volume = CalculateVolume(radius, length);
+                    Volume = Math.Round(CalculateVolume(radius, length), 3, MidpointRounding.AwayFromZero);
                     break;
                 default:
                     //Perhaps log an issue here?
@@ -27,14 +27,14 @@ namespace GeoMathAPI.Models._3D_Shapes
             }
         }
 
-        public static double CalculateArea(double radius, double length)
+        public static decimal CalculateArea(decimal radius, decimal length)
         {
-            return Math.Round(Circle.CalculateArea(radius) + (2 * Math.PI * radius * length), 3);
+            return (2*Circle.CalculateArea(radius)) + (2 * (decimal)Math.PI * radius * length);
         }
 
-        public static double CalculateVolume(double radius, double length)
+        public static decimal CalculateVolume(decimal radius, decimal length)
         {
-            return Math.Round(Circle.CalculateArea(radius) * length, 3);
+            return Circle.CalculateArea(radius) * length;
         }
     }
 }

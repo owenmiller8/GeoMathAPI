@@ -7,19 +7,19 @@ namespace GeoMathAPI.Models
 {
     public class Ellipse
     {
-        public double Area { get; set; }
+        public decimal Area { get; set; }
 
-        public double Perimeter { get; set; }
+        public decimal Perimeter { get; set; }
 
-        public Ellipse(double longRadius, double shortRadius, _CalcTypes calc)
+        public Ellipse(decimal longRadius, decimal shortRadius, _CalcTypes calc)
         {
             switch (calc)
             {
                 case _CalcTypes.AreaCalc:
-                    Area = CalculateArea(longRadius, shortRadius);
+                    Area = Math.Round(CalculateArea(longRadius, shortRadius), 3, MidpointRounding.AwayFromZero);
                     break;
                 case _CalcTypes.PerimeterCalc:
-                    Perimeter = CalculatePerimeter(longRadius, shortRadius);
+                    Perimeter = Math.Round(CalculatePerimeter(longRadius, shortRadius), 3, MidpointRounding.AwayFromZero);
                     break;
                 default:
                     //Perhaps log an issue here?
@@ -28,9 +28,9 @@ namespace GeoMathAPI.Models
         }
 
 
-        public static double CalculateArea(double l, double s)
+        public static decimal CalculateArea(decimal l, decimal s)
         {
-            return Math.Round(Math.PI * l * s, 3);
+            return (decimal)Math.PI * l * s;
         }
 
         /// <summary>
@@ -39,10 +39,10 @@ namespace GeoMathAPI.Models
         /// <param name="l"></param>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static double CalculatePerimeter(double l, double s)
+        public static decimal CalculatePerimeter(decimal l, decimal s)
         {
-            var h = Math.Pow(l - s, 2) / Math.Pow(l - s, 2);
-            return Math.Round((Math.PI * (l + s)) * (1 + ((3 * h) / (10 + Math.Pow(4 + (3 * h), 0.5)))), 3);
+            var h = (decimal)Math.Pow((double)(l - s), 2) / (decimal)Math.Pow((double)(l - s), 2);
+            return (decimal)Math.PI * (l + s) * (1 + ((3 * h) / (10 + (decimal)Math.Pow((double)(4 + (3 * h)), 0.5))));
         }
     }
 }

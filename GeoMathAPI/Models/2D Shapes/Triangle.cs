@@ -7,38 +7,38 @@ namespace GeoMathAPI.Models
 {
     public class Triangle
     {
-        public double Area { get; set; }
+        public decimal Area { get; set; }
 
-        public double Perimeter { get; set; }
+        public decimal Perimeter { get; set; }
 
-        public Triangle(double width, double height, _CalcTypes calc)
+        public Triangle(decimal width, decimal height, _CalcTypes calc)
         {
             switch (calc)
             {
                 case _CalcTypes.AreaCalc:
-                    Area = CalculateArea(width, height);
+                    Area = Math.Round(CalculateArea(width, height), 3, MidpointRounding.AwayFromZero);
                     break;
                 case _CalcTypes.PerimeterCalc:
-                    Perimeter = CalculatePerimeter(width, height);
+                    Perimeter = Math.Round(CalculatePerimeter(width, height), 3, MidpointRounding.AwayFromZero);
                     break;
                 default:
                     break;
             }
         }
 
-        public static double CalculateArea(double w, double h)
+        public static decimal CalculateArea(decimal w, decimal h)
         {
-            return Math.Round((w * h)/2, 3);
+            return (w * h)/2;
         }
 
-        public static double CalculatePerimeter(double w, double h)
+        public static decimal CalculatePerimeter(decimal w, decimal h)
         {
-            return Math.Round(CalculateHypotenuse(w, h) + w + h, 3);
+            return CalculateHypotenuse(w, h) + w + h;
         }
 
-        public static double CalculateHypotenuse(double w, double h)
+        public static decimal CalculateHypotenuse(decimal w, decimal h)
         {
-            return Math.Pow(Math.Pow(w, 2) + Math.Pow(h, 2), 0.5);
+            return (decimal)Math.Pow(Math.Pow((double)w, 2) + Math.Pow((double)h, 2), 0.5);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace GeometryUnitTests
         [TestMethod]
         public void AreaTest()
         {
-            var expected = 78.540f;
+            var expected = 78.540m;
             var circle = new Circle(5, _CalcTypes.AreaCalc);
 
             Assert.AreEqual(circle.Area, expected);
@@ -18,7 +18,7 @@ namespace GeometryUnitTests
         [TestMethod]
         public void PerimeterTest()
         {
-            var expected = 31.416f;
+            var expected = 31.416m;
             var circle = new Circle(5, _CalcTypes.PerimeterCalc);
 
             Assert.AreEqual(circle.Perimeter, expected);

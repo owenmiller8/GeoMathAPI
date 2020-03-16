@@ -7,11 +7,11 @@ namespace GeoMathAPI.Models._3D_Shapes
 {
     public class Pyramid
     {
-        public double SurfaceArea { get; set; }
+        public decimal SurfaceArea { get; set; }
 
-        public double Volume { get; set; }
+        public decimal Volume { get; set; }
 
-        public Pyramid(double height, double width, double length, _CalcTypes calc, _3DBases shapeBase)
+        public Pyramid(decimal height, decimal width, decimal length, _CalcTypes calc, _3DBases shapeBase)
         {
             switch (calc)
             {
@@ -27,29 +27,29 @@ namespace GeoMathAPI.Models._3D_Shapes
             }
         }
 
-        public static double CalculateArea(double height, double width, double length, _3DBases b)
+        public static decimal CalculateArea(decimal height, decimal width, decimal length, _3DBases b)
         {
             switch (b)
             {
                 case _3DBases.Square:
-                    return Math.Round(Square.CalculateArea(height)  + (0.5 * Square.CalculatePerimeter(length) * Triangle.CalculateHypotenuse(height, 0.5f * width)), 3);
+                    return Square.CalculateArea(height)  + (0.5m * Square.CalculatePerimeter(length) * Triangle.CalculateHypotenuse(height, 0.5m * width));
                 case _3DBases.Triangle:
-                    return Math.Round(Triangle.CalculateArea(height, width) + (0.5 * Triangle.CalculatePerimeter(width, length) * Triangle.CalculateHypotenuse(width, height)), 3);
+                    return Triangle.CalculateArea(height, width) + (0.5m * Triangle.CalculatePerimeter(width, length) * Triangle.CalculateHypotenuse(width, height));
                 default:
-                    return 123456f;
+                    return 123456m;
             }
         }
 
-        public static double CalculateVolume(double height, double width, double length, _3DBases b)
+        public static decimal CalculateVolume(decimal height, decimal width, decimal length, _3DBases b)
         {
             switch (b)
             {
                 case _3DBases.Square:
-                    return Math.Round((1 / 3) * Square.CalculateArea(height) * height, 3);
+                    return (1 / 3) * Square.CalculateArea(height) * height;
                 case _3DBases.Triangle:
-                    return Math.Round((1 / 3) * Triangle.CalculateArea(length, width) * height, 3);
+                    return (1 / 3) * Triangle.CalculateArea(length, width) * height;
                 default:
-                    return 123456f;
+                    return 123456m;
             }
         }
     }

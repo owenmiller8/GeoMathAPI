@@ -9,7 +9,7 @@ namespace GeometryUnitTests._2D_Shapes
         [TestMethod]
         public void AreaTest()
         {
-            var expected = 157.080f;
+            var expected = 157.080m;
             var ellipse = new Ellipse(5, 10, _CalcTypes.AreaCalc);
 
             Assert.AreEqual(ellipse.Area, expected);
@@ -18,7 +18,7 @@ namespace GeometryUnitTests._2D_Shapes
         [TestMethod]
         public void PerimeterTest()
         {
-            var expected = 31.416f;
+            var expected = 58.303m;
             var ellipse = new Ellipse(5, 10, _CalcTypes.PerimeterCalc);
 
             Assert.AreEqual(ellipse.Perimeter, expected);

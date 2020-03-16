@@ -7,19 +7,19 @@ namespace GeoMathAPI.Models._3D_Shapes
 {
     public class Cube
     {
-        public double SurfaceArea { get; set; }
+        public decimal SurfaceArea { get; set; }
 
-        public double Volume { get; set; }
+        public decimal Volume { get; set; }
 
-        public Cube(double length, _CalcTypes calc)
+        public Cube(decimal length, _CalcTypes calc)
         {
             switch (calc)
             {
                 case _CalcTypes.AreaCalc:
-                    SurfaceArea = CalculateArea(length);
+                    SurfaceArea = Math.Round(CalculateArea(length), 3, MidpointRounding.AwayFromZero);
                     break;
                 case _CalcTypes.VolumeCalc:
-                    Volume = CalculateVolume(length);
+                    Volume = Math.Round(CalculateVolume(length), 3, MidpointRounding.AwayFromZero);
                     break;
                 default:
                     //Perhaps log an issue here?
@@ -28,14 +28,14 @@ namespace GeoMathAPI.Models._3D_Shapes
         }
 
 
-        public static double CalculateArea(double l)
+        public static decimal CalculateArea(decimal l)
         {
-            return Math.Round(Math.Pow(l, 2) * 6, 3);
+            return (decimal)Math.Pow((double)l, 2) * 6;
         }
 
-        public static double CalculateVolume(double l)
+        public static decimal CalculateVolume(decimal l)
         {
-            return Math.Round(Math.Pow(l, 3), 3);
+            return (decimal)Math.Pow((double)l, 3);
         }
     }
 }

@@ -7,11 +7,11 @@ namespace GeoMathAPI.Models
 {
     public class Sphere
     {
-        public double SurfaceArea { get; set; }
+        public decimal SurfaceArea { get; set; }
 
-        public double Volume { get; set; }
+        public decimal Volume { get; set; }
 
-        public Sphere(double radius, _CalcTypes calc)
+        public Sphere(decimal radius, _CalcTypes calc)
         {
             switch (calc)
             {
@@ -28,14 +28,14 @@ namespace GeoMathAPI.Models
         }
 
 
-        public static double CalculateArea(double r)
+        public static decimal CalculateArea(decimal r)
         {
-            return Math.Round(4 * (Math.PI * Math.Pow(r, 2)), 3);
+            return 4 * ((decimal)Math.PI * (decimal)Math.Pow((double)r, 2));
         }
 
-        public static double CalculateVolume(double r)
+        public static decimal CalculateVolume(decimal r)
         {
-            return Math.Round((4 / 3) * (Math.PI * Math.Pow(r, 3)), 3);
+            return (4 / 3) * ((decimal)Math.PI * (decimal)Math.Pow((double)r, 3));
         }
     }
 }

@@ -7,11 +7,11 @@ namespace GeoMathAPI.Models._3D_Shapes
 {
     public class Prism
     {
-        public double SurfaceArea { get; set; }
+        public decimal SurfaceArea { get; set; }
 
-        public double Volume { get; set; }
+        public decimal Volume { get; set; }
 
-        public Prism(double height, double width, double length, _CalcTypes calc, _3DBases shapeBase)
+        public Prism(decimal height, decimal width, decimal length, _CalcTypes calc, _3DBases shapeBase)
         {
             switch (calc)
             {
@@ -27,7 +27,7 @@ namespace GeoMathAPI.Models._3D_Shapes
             }
         }
 
-        public static double CalculateArea(double height, double width, double length, _3DBases b)
+        public static decimal CalculateArea(decimal height, decimal width, decimal length, _3DBases b)
         {
             switch (b)
             {
@@ -36,11 +36,11 @@ namespace GeoMathAPI.Models._3D_Shapes
                 case _3DBases.Triangle:
                     return Math.Round((Triangle.CalculateArea(height, width) * 2) + (Rectangle.CalculateArea(height, length) * 3), 3);
                 default:
-                    return 123456f;
+                    return 123456m;
             }
         }
 
-        public static double CalculateVolume(double height, double width,  double length, _3DBases b)
+        public static decimal CalculateVolume(decimal height, decimal width,  decimal length, _3DBases b)
         {
             switch (b)
             {
@@ -49,7 +49,7 @@ namespace GeoMathAPI.Models._3D_Shapes
                 case _3DBases.Triangle:
                     return Math.Round(Triangle.CalculateArea(height, width) * length, 3);
                 default:
-                    return 123456f;
+                    return 123456m;
             }
         }
     }

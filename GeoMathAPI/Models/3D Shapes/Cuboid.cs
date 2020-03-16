@@ -7,11 +7,11 @@ namespace GeoMathAPI.Models._3D_Shapes
 {
     public class Cuboid
     {
-        public double SurfaceArea { get; set; }
+        public decimal SurfaceArea { get; set; }
 
-        public double Volume { get; set; }
+        public decimal Volume { get; set; }
 
-        public Cuboid(double height, double width, double length, _CalcTypes calc)
+        public Cuboid(decimal height, decimal width, decimal length, _CalcTypes calc)
         {
             switch (calc)
             {
@@ -28,14 +28,14 @@ namespace GeoMathAPI.Models._3D_Shapes
         }
 
 
-        public static double CalculateArea(double height, double width, double length)
+        public static decimal CalculateArea(decimal height, decimal width, decimal length)
         {
-            return Math.Round((height * width * 2) + (width * length * 2) + (height * length * 2), 3);
+            return (height * width * 2) + (width * length * 2) + (height * length * 2);
         }
 
-        public static double CalculateVolume(double height, double width, double length)
+        public static decimal CalculateVolume(decimal height, decimal width, decimal length)
         {
-            return Math.Round(height * width * length, 3);
+            return height * width * length;
         }
     }
 }

@@ -7,11 +7,11 @@ namespace GeoMathAPI.Models
 {
     public class Square
     {
-        public double Area { get; set; }
+        public decimal Area { get; set; }
 
-        public double Perimeter { get; set; }
+        public decimal Perimeter { get; set; }
 
-        public Square(double length, _CalcTypes calc)
+        public Square(decimal length, _CalcTypes calc)
         {
             switch (calc)
             {
@@ -26,14 +26,14 @@ namespace GeoMathAPI.Models
             }
         }
 
-        public static double CalculateArea(double length)
+        public static decimal CalculateArea(decimal length)
         {
-            return Math.Round(Math.Pow(length, 2), 3);
+            return (decimal)Math.Pow((double)length, 2);
         }
 
-        public static double CalculatePerimeter(double length)
+        public static decimal CalculatePerimeter(decimal length)
         {
-            return Math.Round(length * 4, 3);
+            return length * 4;
         }
     }
 }

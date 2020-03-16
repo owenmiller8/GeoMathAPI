@@ -7,11 +7,11 @@ namespace GeoMathAPI.Models
 {
     public class Rectangle
     {
-        public double Area { get; set; }
+        public decimal Area { get; set; }
 
-        public double Perimeter { get; set; }
+        public decimal Perimeter { get; set; }
 
-        public Rectangle(double width, double height, _CalcTypes calc)
+        public Rectangle(decimal width, decimal height, _CalcTypes calc)
         {
             switch (calc)
             {
@@ -27,14 +27,14 @@ namespace GeoMathAPI.Models
             }
         }
 
-        public static double CalculateArea(double w, double h)
+        public static decimal CalculateArea(decimal w, decimal h)
         {
-            return Math.Round(w * h, 3);
+            return w * h;
         }
 
-        public static double CalculatePerimeter(double w, double h)
+        public static decimal CalculatePerimeter(decimal w, decimal h)
         {
-            return Math.Round((w * 2) + (h * 2), 3);
+            return (w * 2) + (h * 2);
         }
     }
 }
