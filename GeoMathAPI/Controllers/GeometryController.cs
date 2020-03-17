@@ -48,10 +48,10 @@ namespace GeoMathAPI.Controllers
 
         [HttpGet]
         [Route("triangle")]
-        public ActionResult<Triangle> Triangle(decimal width, decimal height, _CalcTypes calc)
+        public ActionResult<EquilateralTriangle> Triangle(decimal width, decimal height, _CalcTypes calc)
         {
             //calc is used for an Enum to tell the constructor what method to use
-            return new Triangle(width, height, calc);
+            return new EquilateralTriangle(width, height, calc);
         }
         #endregion
 

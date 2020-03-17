@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeoMathAPI.Models._2D_Shapes.Triangles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace GeoMathAPI.Models._3D_Shapes
 
         public static decimal CalculateArea(decimal radius, decimal height)
         {
-            return (decimal)Math.PI * radius * (radius + Triangle.CalculateHypotenuse(radius, height));
+            return (decimal)Math.PI * radius * (radius + Right_AngledTriangle.CalculateHypotenuse(radius, height));
         }
 
         public static decimal CalculateVolume(decimal radius, decimal height)

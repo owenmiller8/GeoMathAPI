@@ -28,7 +28,7 @@ namespace GeometryUnitTests._3D_Shapes
         [TestMethod]
         public void AreaTestTriangle()
         {
-            var expected = 108.963m;
+            var expected = 119.957m;
             var pyramid= new Pyramid(5, 6, 10, _CalcTypes.AreaCalc, _3DBases.Triangle);
 
             Assert.AreEqual(pyramid.SurfaceArea, expected);

@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace GeoMathAPI.Models
 {
-    public class Triangle
+    public class EquilateralTriangle
     {
         public decimal Area { get; set; }
 
         public decimal Perimeter { get; set; }
 
-        public Triangle(decimal width, decimal height, _CalcTypes calc)
+        public EquilateralTriangle(decimal width, decimal height, _CalcTypes calc)
         {
             switch (calc)
             {
@@ -34,11 +34,6 @@ namespace GeoMathAPI.Models
         public static decimal CalculatePerimeter(decimal w)
         {
             return w * 3;
-        }
-
-        public static decimal CalculateHypotenuse(decimal w, decimal h)
-        {
-            return (decimal)Math.Pow(Math.Pow((double)w, 2) + Math.Pow((double)h, 2), 0.5);
         }
     }
 }
