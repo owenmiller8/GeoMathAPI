@@ -4,7 +4,7 @@ using GeoMathAPI.Models;
 namespace GeometryUnitTests._2D_Shapes
 {
     [TestClass]
-    public class TriangleTests
+    public class EquilateralTriangleTests
     {
         [TestMethod]
         public void AreaTest()

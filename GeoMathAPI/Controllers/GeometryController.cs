@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GeoMathAPI.Models;
 using GeoMathAPI.Models._3D_Shapes;
+using GeoMathAPI.Models._2D_Shapes.Triangles;
 
 namespace GeoMathAPI.Controllers
 {
@@ -47,11 +48,19 @@ namespace GeoMathAPI.Controllers
 
 
         [HttpGet]
-        [Route("triangle")]
-        public ActionResult<EquilateralTriangle> Triangle(decimal width, decimal height, _CalcTypes calc)
+        [Route("equilateraltriangle")]
+        public ActionResult<EquilateralTriangle> EquilateralTriangle(decimal width, decimal height, _CalcTypes calc)
         {
             //calc is used for an Enum to tell the constructor what method to use
             return new EquilateralTriangle(width, height, calc);
+        }
+        
+        [HttpGet]
+        [Route("rightangledtriangle")]
+        public ActionResult<Right_AngledTriangle> Right_AngledTriangle(decimal width, decimal height, _CalcTypes calc)
+        {
+            //calc is used for an Enum to tell the constructor what method to use
+            return new Right_AngledTriangle(width, height, calc);
         }
         #endregion
 
